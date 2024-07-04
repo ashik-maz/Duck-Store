@@ -1,8 +1,7 @@
 import 'dart:math';
 
 import 'package:animated_text_kit/animated_text_kit.dart';
-import 'package:duck_store/main_screens/customer_home.dart';
-import 'package:duck_store/main_screens/supplier_home.dart';
+
 import 'package:duck_store/widget/yellow_button.dart';
 import 'package:flutter/material.dart';
 

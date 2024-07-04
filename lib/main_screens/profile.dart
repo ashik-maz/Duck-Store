@@ -1,3 +1,7 @@
+import 'package:duck_store/customer_screens/customer_orders.dart';
+import 'package:duck_store/customer_screens/wishlist.dart';
+import 'package:duck_store/main_screens/cart.dart';
+import 'package:duck_store/widget/appbar_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
@@ -99,7 +103,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   ),
                                 ),
                               ),
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            const CartScreen(back: AppBarBackbutton(),)));
+                              },
                             ),
                           ),
                           Container(
@@ -116,7 +126,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   ),
                                 ),
                               ),
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            const CustomerOrders()));
+                              },
                             ),
                           ),
                           Container(
@@ -139,7 +155,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   ),
                                 ),
                               ),
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            const Wishlist()));
+                              },
                             ),
                           )
                         ],
@@ -152,75 +174,78 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       children: [
                         const SizedBox(
                           height: 150,
-                          child: Image(image: AssetImage('images/inapp/logo.jpg')),
+                          child:
+                              Image(image: AssetImage('images/inapp/logo.jpg')),
                         ),
-                      
-                    const PeofileHeader(headerlabel: '  Account Info  '),
-                    Padding(
-                      padding: const EdgeInsets.all(10.0),
-                      child: Container(
-                        height: 260,
-                        decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(16)),
-                        child: const Column(
-                          children: [
-                            RepeatedListTile(
-                                title: 'Email Address',
-                                subtitle: 'example@example.com',
-                                icon: Icons.email),
-                            YellowDivider(),
-                            RepeatedListTile(
-                              title: 'Phone No',
-                              icon: Icons.phone,
-                              subtitle: '+8801111111',
+                        const PeofileHeader(headerlabel: '  Account Info  '),
+                        Padding(
+                          padding: const EdgeInsets.all(10.0),
+                          child: Container(
+                            height: 260,
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(16)),
+                            child: const Column(
+                              children: [
+                                RepeatedListTile(
+                                    title: 'Email Address',
+                                    subtitle: 'example@example.com',
+                                    icon: Icons.email),
+                                YellowDivider(),
+                                RepeatedListTile(
+                                  title: 'Phone No',
+                                  icon: Icons.phone,
+                                  subtitle: '+8801111111',
+                                ),
+                                YellowDivider(),
+                                RepeatedListTile(
+                                  title: 'Address',
+                                  icon: Icons.location_pin,
+                                  subtitle: 'example:Dhaka, Bangldesh',
+                                )
+                              ],
                             ),
-                            YellowDivider(),
-                            RepeatedListTile(
-                              title: 'Address',
-                              icon: Icons.location_pin,
-                              subtitle: 'example:Dhaka, Bangldesh',
-                            )
-                          ],
+                          ),
                         ),
-                      ),
+                        const PeofileHeader(headerlabel: '  Account setting  '),
+                        Padding(
+                          padding: const EdgeInsets.all(10.0),
+                          child: Container(
+                            height: 220,
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(16)),
+                            child: Column(
+                              children: [
+                                RepeatedListTileNosub(
+                                  title: "Edit Profile",
+                                  icon: Icons.edit,
+                                  onPressed: () {},
+                                ),
+                                const YellowDivider(),
+                                RepeatedListTileNosub(
+                                  title: 'Change Password',
+                                  icon: Icons.lock,
+                                  onPressed: () {},
+                                ),
+                                const YellowDivider(),
+                                RepeatedListTileNosub(
+                                  title: 'Log Out',
+                                  icon: Icons.logout,
+                                  onPressed: () {
+                                    Navigator.pushReplacementNamed(
+                                        context, '/welcome_screen');
+                                  },
+                                )
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
-                    const PeofileHeader(headerlabel: '  Account setting  '),
-                    Padding(
-                      padding: const EdgeInsets.all(10.0),
-                      child: Container(
-                        height: 220,
-                        decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(16)),
-                        child: Column(
-                          children: [
-                            RepeatedListTileNosub(
-                              title: "Edit Profile",
-                              icon: Icons.edit,
-                              onPressed: () {},
-                            ),
-                            const YellowDivider(),
-                            RepeatedListTileNosub(
-                              title: 'Change Password',
-                              icon: Icons.lock,
-                              onPressed: () {},
-                            ),
-                            const YellowDivider(),
-                            RepeatedListTileNosub(
-                              title: 'Log Out',
-                              icon: Icons.logout,
-                              onPressed: () {
-                                Navigator.pushReplacementNamed(context, '/welcome_screen');
-                              },
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                                    ],
-                                  ),
-                  ),],),
+                  ),
+                ],
+              ),
             )
           ],
         ),
